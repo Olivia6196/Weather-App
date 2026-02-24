@@ -7,9 +7,12 @@ const SearchBar = ({fetchData}) => {
     const handleChange = (e) => setCity(e.target.value);
     const handleSubmit = (e) =>{
         e.preventDefault();
-        if(city){
+        if(city.trim() !== ""){
             fetchData(city);
             setCity("");
+        }
+        else{
+            alert("Please enter a city name!");
         }
     }
     return (
