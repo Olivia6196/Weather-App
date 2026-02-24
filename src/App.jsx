@@ -35,7 +35,7 @@ function App() {
   }
   // useEffect(()=>{
   //     fetchData("New York");
-  // }, [city]);
+  // }, []);
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[url(/background.jpg)] bg-cover bg-center overflow-hidden">
       <div className=" bg-black/20 text-white px-2 py-8 md:p-8 max-w-md w-full rounded-lg shadow-xl">
