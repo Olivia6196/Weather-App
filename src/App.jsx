@@ -38,11 +38,11 @@ function App() {
   // }, [city]);
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[url(/background.jpg)] bg-cover bg-center overflow-hidden">
-      <div className=" bg-black/20 text-white p-8 max-w-md w-full rounded-lg shadow-xl">
+      <div className=" bg-black/20 text-white px-2 py-8 md:p-8 max-w-md w-full rounded-lg shadow-xl">
         <h1 className="text-3xl font-bold text-center pb-6 text-pink-500">Weather App</h1>
         <SearchBar fetchData={fetchData} />
         {loading && <p className="text-center mt-4 text-lg"><BiLoaderCircle className="animate-spin mx-auto" size={30} /></p>}
-        {error && <p className="text-center mt-4 text-lg text-red-500">{error}</p>}
+        {error && <p className="text-center mt-4 text-lg text-red-600 bg-white p-2 rounded-lg">{error}</p>}
         {weather && <ForCast weather={weather} />}
       </div>
     </div>
