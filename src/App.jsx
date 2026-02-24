@@ -4,7 +4,6 @@ import axios from "axios";
 import ForCast from "./components/ForCast";
 import { BiLoaderCircle } from "react-icons/bi";
 
-
 function App() {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -14,28 +13,28 @@ function App() {
   const API_KEY = import.meta.env.VITE_API_KEY;
   const API_URL = 'https://api.openweathermap.org/data/2.5/weather';
 
-  const fetchData = async (city)=>{
+  const fetchData = async (city) => {
     setLoading(true);
     setError("");
-    try{
-      const url= `${API_URL}?q=${city}&units=metric&appid=${API_KEY}`;
+    try {
+      const url = `${API_URL}?q=${city}&units=metric&appid=${API_KEY}`;
       const response = await axios.get(url);
       console.log(response.data);
       setWeather(response.data);
-    } catch(err){
-      if(err.response && err.response.status === 404){
+    } catch (err) {
+      if (err.response && err.response.status === 404) {
         setError("City not found, please enter another city!")
-      } else{
+      } else {
         setError("An error occurred, please try again later.")
       }
       setWeather(null);
-    } finally{
+    } finally {
       setLoading(false);
     }
   }
-  // useEffect(()=>{
-  //     fetchData("New York");
-  // }, []);
+  useEffect(()=>{
+    console.log("Loading state changed:", loading);
+  }, [loading])
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[url(/background.jpg)] bg-cover bg-center overflow-hidden">
       <div className=" bg-black/20 text-white px-2 py-8 md:p-8 max-w-md w-full rounded-lg shadow-xl">
